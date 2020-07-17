@@ -19,25 +19,25 @@ def home():
 def ml_app():
     return render_template("ml.html")
 
-@app.route("/respitory_diseases")
+@app.route("/respiratory_diseases")
 def respitory():
-    return render_template("index.html")
+    return render_template("respiratory.html")
 
 @app.route("/external_causes")
 def external():
-    return render_template("index.html")
+    return render_template("external.html")
 
 @app.route("/nervous_system")
 def nervous():
-    return render_template("index.html")
+    return render_template("nervous.html")
 
 @app.route("/metabolic_disorders")
 def endocrine():
-    return render_template("index.html")
+    return render_template("endocrine.html")
 
 @app.route("/mental_disorders")
 def mental():
-    return render_template("index.html")
+    return render_template("mental.html")
 
 
 if __name__ == "__main__":
