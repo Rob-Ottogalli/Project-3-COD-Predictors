@@ -26,12 +26,12 @@
             var viz
 
             // function to put tableau on screen, using example link.
-            function createViz() {
+            function initViz() {
                 var containerDiv = document.getElementById("vizContainer"),
                 url = "https://public.tableau.com/views/COD_mental/MentalDash?:language=en&:display_count=y&:origin=viz_share_link"; // <- insert link here
                 viz = new tableau.Viz(containerDiv, url);
             }
-            createViz();
+            initViz();
 
         </script>
 
