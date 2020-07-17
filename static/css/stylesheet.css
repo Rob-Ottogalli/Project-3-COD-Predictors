@@ -1,0 +1,7 @@
+.central {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 50%;
+    padding: 70px 0;
+    border: 3px solid green;
+  }
