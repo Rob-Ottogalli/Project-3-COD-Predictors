@@ -15,7 +15,7 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
-    @app.route("/predict")
+@app.route("/predict")
 def ml_app():
     return render_template("ml.html")
 
