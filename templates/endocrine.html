@@ -16,20 +16,33 @@
 
 <!-- Note: navbar is small for some reason and extends across the screen -->
     <body>
+        <div class = "row">
+            <div class="col-md-12 jumbotron text-center">
+                <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;">Endocrine. Nutritional, and Metabolical Diseases</h1>
+              </div>
+        </div>
         <div class="row">
-            <div class="col-md-12 col-lg-12 col-sm-12">
+            <div class="col-md-12 col-lg-12 col-sm-12 central">
+                
                 <div id="vizContainer"></div>
             </div>
         </div>
         <!-- tableu javascript code import -->
         <script src="https://us-east-1.online.tableau.com/javascripts/api/tableau-2.min.js"></script>
+        
         <script>
             var viz
 
             // function to put tableau on screen, using example link.
             function initViz() {
                 var containerDiv = document.getElementById("vizContainer"),
-                url = "https://public.tableau.com/views/COD_endocrine/EndocrineDash?:language=en&:display_count=y&:origin=viz_share_link"; // <- insert link here
+                url = "https://public.tableau.com/views/COD_endocrine_15950909633820/EndocrineDash?:language=en&:display_count=y&publish=yes&:origin=viz_share_link"; // <- insert link here
+                var options = {
+                    width: '600px',
+                    height: '600px',
+                    hideTabs: true,
+                    hideToolbar: true,
+                };
                 viz = new tableau.Viz(containerDiv, url);
             }
             initViz();

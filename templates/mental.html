@@ -15,6 +15,10 @@
 
 <!-- Note: navbar is small for some reason and extends across the screen -->
     <body>
+        <div class = "row">
+            <div class="col-md-12 jumbotron text-center">
+                <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;">Mental and behavioural disorders</h1>
+              </div>
         <div class="row">
             <div class="col-md-12 col-lg-12 col-sm-12">
                 <div id="vizContainer"></div>
@@ -28,7 +32,7 @@
             // function to put tableau on screen, using example link.
             function initViz() {
                 var containerDiv = document.getElementById("vizContainer"),
-                url = "https://public.tableau.com/views/COD_mental/MentalDash?:language=en&:display_count=y&:origin=viz_share_link"; // <- insert link here
+                url = "https://public.tableau.com/views/COD_mental_15951117429830/MentalDash?:language=en&:retry=yes&:display_count=y&:origin=viz_share_link"; // <- insert link here
                 viz = new tableau.Viz(containerDiv, url);
             }
             initViz();
