@@ -1,6 +1,5 @@
-from sqlalchemy import func
 import pandas as pd
-# from sqlalchemy import create_engine
+
 from flask import (
     Flask,
     render_template,
@@ -41,4 +40,4 @@ def mental():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0',port=5000)
