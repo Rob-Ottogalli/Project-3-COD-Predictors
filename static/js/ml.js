@@ -110,7 +110,21 @@ function race_code(race) {
 var ml_button = d3.select("#ml_button");
 
 function ml_enter() {
+    var age_range = d3.select("#age_dropdown").property("value");
+    var gender = d3.select("#gender_dropdown").property("value");
+    var marital_status = d3.select("#marital_dropdown").property("value");
+    var education_level = d3.select("#education_dropdown").property("value");
+    var race = d3.select("#race_dropdown").property("value");
+
+    var age_range_array = age_code(age_range);
+    var gender_array = gender_code(gender);
+    var marital_status_array = marital_status_code(marital_status);
+    var education_level_array = education_level_code(education_level);
+    var race_array = race_code(race);
+
+    var ml_input = age_range_array.concat(gender_array, marital_status_array, education_level_array, race_array);
     
+    console.log(ml_input);
 }
 
 ml_button.on("click", ml_enter);

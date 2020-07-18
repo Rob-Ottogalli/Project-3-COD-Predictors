@@ -21,83 +21,79 @@
               <h1> Predict your health risks</h1>
             </div>
         </div>
-        
-        <div class="col-md-offset-2 col-md-8">
-            <h2>Enter search criteria</h2>
-            <form method="POST" action="/send" role="form", name="petform">
-              <div class="form-group">
-                <div id ="age_dropdown" class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="age_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Age</button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">Under 1 year</a>
-                      <a class="dropdown-item" href="#">1-4 years</a>
-                      <a class="dropdown-item" href="#">5-14</a>
-                      <a class="dropdown-item" href="#">15-24</a>
-                      <a class="dropdown-item" href="#">25-34</a>
-                      <a class="dropdown-item" href="#">35-44</a>
-                      <a class="dropdown-item" href="#">45-54</a>
-                      <a class="dropdown-item" href="#">55-64</a>
-                      <a class="dropdown-item" href="#">65-74</a>
-                      <a class="dropdown-item" href="#">85 years and over</a>
-                    </div>
+       
+        <div class="col-md-4 col-md-offset-4">
+            <form>
+                <div class="form-group">
+                    <h2 style="font-family: Georgia, 'Times New Roman', Times, serif;">Enter Search Criteria</h2>
                 </div>
-              </div>
 
-              <div class="form-group">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="gender_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gender</button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">Male</a>
-                      <a class="dropdown-item" href="#">Female</a>
-                    </div>
+                <div class="form-group">
+                    <label for="age_group"> Age </label>
+                    <select class="form-control" id="age_dropdown">
+                        <option value="Under 1 year">Under 1 year</option>
+                        <option value="1-4 years">1-4 years</option>
+                        <option value="5-14">5-14</option>
+                        <option value="15-24">15-24</option>
+                        <option value="25-34">25-34</option>
+                        <option value="35-44">35-44</option>
+                        <option value="45-54">45-54</option>
+                        <option value="55-64">55-64</option>
+                        <option value="65-74">65-74</option>
+                        <option value="75-84">75-84</option>
+                        <option value="85 years and over">85 years and over</option>
+                    </select>
                 </div>
-              </div>
 
-              <div class="form-group">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="marital_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Marital Status</button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">Married</a>
-                      <a class="dropdown-item" href="#">Widowed</a>
-                      <a class="dropdown-item" href="#">Divorced</a>
-                      <a class="dropdown-item" href="#">Never Married, Single</a>
-                    </div>
+                <div class="form-group">
+                    <label for="gender"> Gender </label>
+                    <select class="form-control" id="gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
                 </div>
-              </div>
 
-              <div class="form-group">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="education_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Education Level</button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">8th grade or less</a>
-                      <a class="dropdown-item" href="#">9 - 12th grade, no diploma</a>
-                      <a class="dropdown-item" href="#">High school graduate or GED completed</a>
-                      <a class="dropdown-item" href="#">Some college credit, but no degree</a>
-                      <a class="dropdown-item" href="#">Bachelor's degree</a>
-                      <a class="dropdown-item" href="#">Master's degree</a>
-                      <a class="dropdown-item" href="#">Associate degree</a>
-                      <a class="dropdown-item" href="#">Doctorate or professional degree</a>
-                    </div>
+                <div class="form-group">
+                    <label for="marital_status"> Marital Status </label>
+                    <select class="form-control" id="marital_dropdown">
+                        <option value="Married">Married</option>
+                        <option value="Widowed">Widowed</option>
+                        <option value="Divorced">Divorced</option>
+                        <option value="Never married, single">Never married, single</option>
+                    </select>
                 </div>
-              </div>
 
-              <div class="form-group">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="race_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Race</button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">White</a>
-                      <a class="dropdown-item" href="#">American Indian</a>
-                      <a class="dropdown-item" href="#">Black</a>
-                      <a class="dropdown-item" href="#">Asian or Pacific Islander</a>
-                    </div>
+                <div class="form-group">
+                    <label for="education_level"> Education Level </label>
+                    <select class="form-control" id="education_dropdown">
+                        <option value="8th grade or less">8th grade or less</option>
+                        <option value="9 - 12th grade, no diploma">9 - 12th grade, no diploma</option>
+                        <option value="High school graduate or GED completed">High school graduate or GED completed</option>
+                        <option value="Some college credit, but no degree">Some college credit, but no degree</option>
+                        <option value="Associate degree">Associate degree</option>
+                        <option value="Bachelor's degree">Bachelor's degree</option>
+                        <option value="Master's degree">Master's degree</option>
+                        <option value="Doctorate or professional degree">Doctorate or professional degree</option>"
+                    </select>
                 </div>
-              </div>
 
-              <input id = "ml_button" type="submit" value="Predict your biggest health risk today" class="btn btn-primary"><br><br>
-              <input type="submit" value="Predict your biggest risk of health 10 years from now" class="btn btn-primary"><br><br>
-              <input type="submit" value="Predict likelyhood of a disease" class="btn btn-primary">
-            </form>
+                <div class="form-group">
+                    <label for="race"> Race </label>
+                    <select class="form-control" id="race">    
+                        <option value="White">White</option>
+                        <option value="Black">Black</option>
+                        <option value="Asian or Pacific Islander">Asian or Pacific Islander</option>
+                        <option value="American Indian">American Indian</option>
+                    </select>
+                </div>
+
+                <input id = "ml_button" type="submit" value="Predict your biggest health risk today" class="btn btn-primary"><br><br>
+                <input type="submit" value="Predict your biggest risk of health 10 years from now" class="btn btn-primary"><br><br>
+                <input type="submit" value="Predict likelyhood of a disease" class="btn btn-primary">
+            </form >
         </div>
+        
+        
     </div> 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>

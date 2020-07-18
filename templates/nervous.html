@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <title>Diseases of the nervous system (G00-G99)</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="static/js/stylesheet.css">
+        <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+    </head>
+
+
+<!-- Note: navbar is small for some reason and extends across the screen -->
+    <body>
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                <div id="vizContainer"></div>
+            </div>
+        </div>
+        <!-- tableu javascript code import -->
+        <script src="https://us-east-1.online.tableau.com/javascripts/api/tableau-2.min.js"></script>
+        <script>
+            var viz
+
+            // function to put tableau on screen, using example link.
+            function initViz() {
+                var containerDiv = document.getElementById("vizContainer"),
+                url = "https://public.tableau.com/views/COD_nervous/NervousDash?:language=en&:display_count=y&:origin=viz_share_link"; // <- insert link here
+                viz = new tableau.Viz(containerDiv, url);
+            }
+            initViz();
+
+        </script>
+
+        <!-- Follor up Text for disease description -->
+        <div class ="container">
+            <article class = "row">
+                <div class="col-lg-8">
+                    <article class="decription content">
+                        <p> Description of nervous system diseases and infections </p>
+                    </article>
+                </div>
+            </article>
+        </div>
+    </body>
+
+</html>
