@@ -86,11 +86,12 @@
                     </select>
                 </div>
 
-                <button id = "ml_button" type="button" onclick="api_call()" value="Predict your biggest health risk today" class="btn btn-primary">Predict your biggest health risk today</button>
-                <p id="demo"></p>
+                <button id = "ml_button" type="button" onclick="api_call('model')" class="btn btn-primary">Predict your biggest health risk today</button>
+                <p id="current_health"></p>
                 <br><br>
-                <!-- <input type="submit" value="Predict your biggest risk of health 10 years from now" class="btn btn-primary"><br><br>
-                <input type="submit" value="Predict likelyhood of a disease" class="btn btn-primary"> -->
+                <button id = "ml_button" type="button" onclick="api_call('model_plus_10')" class="btn btn-primary">Predict your biggest health risk today</button>
+                <p id="health_plus_10"></p>
+                <!-- <input type="submit" value="Predict likelyhood of a disease" class="btn btn-primary"> -->
             </form >
         </div>
         

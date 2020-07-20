@@ -42,7 +42,8 @@ def age_code(age_range):
 
     # Change the value of the correct age to 1
     age_array[ages[age_range]] = 1
-
+    print(age_range)
+    
     return age_array
 
 # Converts user gender input into a one-hot-encoded array
@@ -133,6 +134,26 @@ def get_year():
     year = datetime.today().year
     return year
 
+def get_age_plus_ten(age_range):
+    # Define age ranges and assign them to a new age range using a dictionary
+    ages = {
+        "1": "5_14",
+        "1_4": "5_14",
+        "5_14": "15_24",
+        "15_24":"25_34",
+        "25_34":"35_44",
+        "35_44":"35_44",
+        "45_54":"45_54",
+        "55_64":"65_74",
+        "65_74":"75_84",
+        "75_84":"85_over",
+        "85_over":"85_over",
+        "not_stated":"not_stated"
+    }
+    print(ages[age_range])
+
+    return ages[age_range]
+
 def run_model(age, gender, marital_status, education_level, race, model_path, encoder_path):
     ml_model = tf.keras.models.load_model(f"Neural_Network_Trained_Models/saved_model/{model_path}")
     encoder = LabelEncoder()
@@ -180,12 +201,21 @@ def mental():
     return render_template("mental.html")
 
 @app.route("/model/<age>/<gender>/<marital_status>/<education_level>/<race>")
-def model_1(age, gender, marital_status, education_level, race):
+def model(age, gender, marital_status, education_level, race):
     model_1 = run_model(age, gender, marital_status, education_level, race, "Model_1_External_Causes.h5", "model_1_classes.npy")
     model_2 = run_model(age, gender, marital_status, education_level, race, "Model_2_Cerebrovascular.h5", "model_2_classes.npy")
     model_3 = run_model(age, gender, marital_status, education_level, race, "Model_3_Alzheimers.h5", "model_3_classes.npy")
     model_4 = run_model(age, gender, marital_status, education_level, race, "Model_4_Diabetes.h5", "model_4_classes.npy")
     model_5 = run_model(age, gender, marital_status, education_level, race, "Model_5_Respiratory.h5", "model_5_classes.npy")
+    return jsonify([model_1, model_2, model_3, model_4, model_5])
+
+@app.route("/model_plus_10/<age>/<gender>/<marital_status>/<education_level>/<race>")
+def model_plus_10(age, gender, marital_status, education_level, race):
+    model_1 = run_model(get_age_plus_ten(age), gender, marital_status, education_level, race, "Model_1_External_Causes.h5", "model_1_classes.npy")
+    model_2 = run_model(get_age_plus_ten(age), gender, marital_status, education_level, race, "Model_2_Cerebrovascular.h5", "model_2_classes.npy")
+    model_3 = run_model(get_age_plus_ten(age), gender, marital_status, education_level, race, "Model_3_Alzheimers.h5", "model_3_classes.npy")
+    model_4 = run_model(get_age_plus_ten(age), gender, marital_status, education_level, race, "Model_4_Diabetes.h5", "model_4_classes.npy")
+    model_5 = run_model(get_age_plus_ten(age), gender, marital_status, education_level, race, "Model_5_Respiratory.h5", "model_5_classes.npy")
     return jsonify([model_1, model_2, model_3, model_4, model_5])
 
 
