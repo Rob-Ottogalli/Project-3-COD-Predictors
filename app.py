@@ -218,4 +218,4 @@ def model_plus_10(age, gender, marital_status, education_level, race):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0',port=5000)

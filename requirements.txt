@@ -1,2 +1,7 @@
 pandas>=1.0.5
 flask
+numpy
+mlflow
+scikit-learn
+tensorflow
+scipy==1.4.1
