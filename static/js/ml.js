@@ -107,24 +107,32 @@ function race_code(race) {
     return race_array;
 }
 
-var ml_button = d3.select("#ml_button");
+//var ml_button = d3.select("#ml_button");
 
-function ml_enter() {
+function api_call() {
     var age_range = d3.select("#age_dropdown").property("value");
     var gender = d3.select("#gender_dropdown").property("value");
     var marital_status = d3.select("#marital_dropdown").property("value");
     var education_level = d3.select("#education_dropdown").property("value");
     var race = d3.select("#race_dropdown").property("value");
 
-    var age_range_array = age_code(age_range);
-    var gender_array = gender_code(gender);
-    var marital_status_array = marital_status_code(marital_status);
-    var education_level_array = education_level_code(education_level);
-    var race_array = race_code(race);
-
-    var ml_input = age_range_array.concat(gender_array, marital_status_array, education_level_array, race_array);
-    
-    console.log(ml_input);
+    fetch(`/model_1/${age_range}/${gender}/${marital_status}/${education_level}/${race}`)
+        .then(response => response.json())
+        .then(data => console.log(data));
 }
 
-ml_button.on("click", ml_enter);
+function ml_enter() {
+    api_call();
+    // const sendPost = async () => {
+    //     const url = `/model_1/${age_range}/${gender}/${marital_status}/${education_level}/${race}`; // the URL to send the HTTP request to
+    //     const body = ''; // whatever you want to send in the body of the HTTP request
+    //     const headers = {'Content-Type': 'application/json'}; // if you're sending JSON to the server
+    //     const method = 'GET';
+    //     const response = await fetch(url, { method, body, headers });
+    //     const data = await response.text(); // or response.json() if your server returns JSON
+    //     console.log(data);
+    // }
+    
+    //sendPost();
+}
+//ml_button.on("click", ml_enter);
