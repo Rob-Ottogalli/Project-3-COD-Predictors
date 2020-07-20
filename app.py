@@ -42,8 +42,7 @@ def age_code(age_range):
 
     # Change the value of the correct age to 1
     age_array[ages[age_range]] = 1
-    print(age_range)
-    
+
     return age_array
 
 # Converts user gender input into a one-hot-encoded array
@@ -150,7 +149,6 @@ def get_age_plus_ten(age_range):
         "85_over":"85_over",
         "not_stated":"not_stated"
     }
-    print(ages[age_range])
 
     return ages[age_range]
 
