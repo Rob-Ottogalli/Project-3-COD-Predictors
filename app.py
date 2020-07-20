@@ -23,17 +23,18 @@ app = Flask(__name__)
 def age_code(age_range):
     # Define age ranges and assign them to an index using a dictionary
     ages = {
-        "1": 0,
-        "1_4": 1,
-        "5_14":2,
-        "15_24":3,
-        "25_34":4,
-        "35_44":5,
-        "45_54":6,
-        "55_64":7,
-        "65_74":8,
-        "75_84":9,
-        "85_over":10
+        "1": 11,
+        "1_4": 0,
+        "5_14":5,
+        "15_24":1,
+        "25_34":2,
+        "35_44":3,
+        "45_54":4,
+        "55_64":6,
+        "65_74":7,
+        "75_84":8,
+        "85_over":9,
+        "not_stated":10
     }
 
     # Create an array with the same length as the dictionary and fill it with 0's
@@ -48,8 +49,8 @@ def age_code(age_range):
 def gender_code(gender):
     # Define genders and assign them to an index using a dictionary
     genders = {
-        "Male":0,
-        "Female":1
+        "Male":1,
+        "Female":0
     }
 
     # Create an array with the same length as the dictionary and fill it with 0's
@@ -64,10 +65,11 @@ def gender_code(gender):
 def marital_status_code(marital_status):
     # Define marital statuses and assign them to an index using a dictionary
     marital_statuses = {
-        "Married":0,
-        "Widowed":1,
-        "Divorced":2,
-        "Single":3
+        "Married":2,
+        "Widowed":4,
+        "Divorced":0,
+        "Single":3,
+        "Unknown":1
     }
 
     # Create an array with the same length as the dictionary and fill it with 0's
@@ -84,12 +86,12 @@ def education_level_code(education_level):
     education_levels = {
         "8th_grade":0,
         "9_12":1,
-        "High_school":2,
-        "Some_college":3,
-        "Associate_degree":4,
-        "Bachelors_degree":5,
-        "Masters_degree":6,
-        "Doctorate":7
+        "High_school":6,
+        "Some_college":7,
+        "Associate_degree":2,
+        "Bachelors_degree":3,
+        "Masters_degree":5,
+        "Doctorate":4
     }
 
     # Create an array with the same length as the dictionary and fill it with 0's
@@ -104,10 +106,10 @@ def education_level_code(education_level):
 def race_code(race):
     # Define races and assign them to an index using a dictionary
     races = {
-        "White":0,
-        "Black":1,
-        "Asian":2,
-        "American_Indian":3
+        "White":3,
+        "Black":2,
+        "Asian":1,
+        "American_Indian":0
     }
 
     # Create an array with the same length as the dictionary and fill it with 0's
@@ -121,7 +123,9 @@ def race_code(race):
 # Gets current month and converts it into a one-hot-encoded array
 def month_code():
     month_array = [0 for x in range(12)]
-    month_array[datetime.today().month] = 1
+    month_recode = [4,3,7,0,8,6,5,1,11,10,9,2]
+    current_month_index = datetime.today().month - 1
+    month_array[month_recode[current_month_index]] = 1
     
     return month_array
 
@@ -140,8 +144,11 @@ def run_model(age, gender, marital_status, education_level, race, model_path, en
     predictions = ml_model.predict(df)
     predicted_class_num = ml_model.predict_classes(df)
     predicted_class_string = encoder.inverse_transform(predicted_class_num)
-    predicted_accuracy = predictions[0,1]*100
-    data = {"Class": predicted_class_string[0], "Accuracy": predicted_accuracy}
+    if predicted_class_string == "Other":
+        predicted_accuracy = 100 - predictions[0,1]*100
+    else:
+        predicted_accuracy = predictions[0,1]*100
+    data = {"Class": predicted_class_string[0], "Probability": predicted_accuracy}
     return data
 
 @app.route("/")
@@ -172,7 +179,7 @@ def endocrine():
 def mental():
     return render_template("mental.html")
 
-@app.route("/model_1/<age>/<gender>/<marital_status>/<education_level>/<race>")
+@app.route("/model/<age>/<gender>/<marital_status>/<education_level>/<race>")
 def model_1(age, gender, marital_status, education_level, race):
     model_1 = run_model(age, gender, marital_status, education_level, race, "Model_1_External_Causes.h5", "model_1_classes.npy")
     model_2 = run_model(age, gender, marital_status, education_level, race, "Model_2_Cerebrovascular.h5", "model_2_classes.npy")
