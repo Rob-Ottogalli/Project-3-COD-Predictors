@@ -18,3 +18,10 @@ body {
   image-orientation: right;
 }
 
+#current_health {
+  color: white;
+}
+
+#health_plus_10 {
+  color: white;
+}
