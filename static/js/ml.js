@@ -45,7 +45,7 @@ function api_call(model) {
         document.getElementById("health_plus_10").innerHTML = "Calculating...";
     }
     var age_range = d3.select("#age_dropdown").property("value");
-    var gender = d3.select("#gender_dropdown").property("value");
+    var gender = d3.select("#sex_dropdown").property("value");
     var marital_status = d3.select("#marital_dropdown").property("value");
     var education_level = d3.select("#education_dropdown").property("value");
     var race = d3.select("#race_dropdown").property("value");
