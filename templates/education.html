@@ -129,10 +129,10 @@
               <!-- Male and Female Difference Chart-->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Examining the Difference Between Male and Female Deaths</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Examining the Breakdown of Deaths by Education Level and Age Group</h6>
                 </div>
                 <div class="card-body">
-                  <div class="chart-area">
+                  <div class="chart-area-lg">
                     <div id="vizContainer"></div>
                     <script>
                       var viz
@@ -140,10 +140,10 @@
                       // function to put tableau on screen, using example link.
                       function initViz() {
                           var containerDiv = document.getElementById("vizContainer"),
-                          url = "https://public.tableau.com/views/Sex-1/Dashboard1?:language=en&:display_count=y&publish=yes&:origin=viz_share_link"; // <- insert link here
+                          url = "https://public.tableau.com/views/Education-LandingPage/Education-LandingPage?:language=en&:display_count=y&publish=yes&:origin=viz_share_link"; // <- insert link here
                           var options = {
                               width: '100%',
-                              height: '25rem',
+                              height: '30rem',
                               hideTabs: true,
                               hideToolbar: true,
                           };
@@ -160,10 +160,10 @@
               <!-- Top 5 Death Category Chart -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Examining the Top 5 Categories of Deaths of Males and Females</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Examining the Breakdown of Deaths by Education Level, Gender, and Marital Status</h6>
                 </div>
                 <div class="card-body">
-                  <div class="chart-area">
+                  <div class="chart-area-lg">
                     <div id="vizContainer2"></div>
                     <script>
                       var viz
@@ -171,10 +171,10 @@
                       // function to put tableau on screen, using example link.
                       function initViz() {
                           var containerDiv = document.getElementById("vizContainer2"),
-                          url = "https://public.tableau.com/views/Sex-2/Dashboard1?:language=en&:display_count=y&:origin=viz_share_link"; // <- insert link here
+                          url = "https://public.tableau.com/views/Education-MaritalStatus-Gender/Story1?:language=en&:display_count=y&publish=yes&:origin=viz_share_link"; // <- insert link here
                           var options = {
                               width: '100%',
-                              height: '25rem',
+                              height: '30rem',
                               hideTabs: true,
                               hideToolbar: true,
                           };
@@ -190,10 +190,10 @@
 
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Examining the Top 5 Circulatory System Diseases of Males and Females</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Examining the Breakdown of Deaths by Education Level and Race</h6>
                 </div>
                 <div class="card-body">
-                  <div class="chart-area">
+                  <div class="chart-area-xl">
                     <div id="vizContainer3"></div>
                     <script>
                       var viz
@@ -201,40 +201,10 @@
                       // function to put tableau on screen, using example link.
                       function initViz() {
                           var containerDiv = document.getElementById("vizContainer3"),
-                          url = "https://public.tableau.com/views/Sex-3/Dashboard1?:language=en&:retry=yes&:display_count=y&:origin=viz_share_link"; // <- insert link here
+                          url = "https://public.tableau.com/views/EducationRace_16014831054250/Story1?:language=en&:display_count=y&publish=yes&:origin=viz_share_link"; // <- insert link here
                           var options = {
                               width: '100%',
-                              height: '25rem',
-                              hideTabs: true,
-                              hideToolbar: true,
-                          };
-                          viz = new tableau.Viz(containerDiv, url, options);
-                      }
-                      initViz();
-                  </script>
-                  </div>
-                  <hr>
-                  ANALYSIS HERE.
-                </div>
-              </div>
-
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Examining the Affect of Age, Race, and Marital Status on Deaths from Coronary Artery Disease</h6>
-                </div>
-                <div class="card-body">
-                  <div class="chart-area-lg">
-                    <div id="vizContainer4"></div>
-                    <script>
-                      var viz
-          
-                      // function to put tableau on screen, using example link.
-                      function initViz() {
-                          var containerDiv = document.getElementById("vizContainer4"),
-                          url = "https://public.tableau.com/views/Sex-4/Sex-4?:language=en&:retry=yes&:display_count=y&:origin=viz_share_link"; // <- insert link here
-                          var options = {
-                              width: '100%',
-                              height: '30rem',
+                              height: '50rem',
                               hideTabs: true,
                               hideToolbar: true,
                           };
