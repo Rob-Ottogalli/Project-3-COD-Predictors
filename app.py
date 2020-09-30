@@ -176,6 +176,24 @@ def run_model(education_level, sex, age, marital_status, race, hispanic_origin, 
     print(prediction)
     return prediction
 
+def get_age_plus_ten(age_range):
+    # Define age ranges and assign them to a new age range using a dictionary
+    ages = {
+        "1": "5_14",
+        "1_4": "5_14",
+        "5_14": "15_24",
+        "15_24":"25_34",
+        "25_34":"35_44",
+        "35_44":"45_54",
+        "45_54":"55_64",
+        "55_64":"65_74",
+        "65_74":"75_84",
+        "75_84":"85_over",
+        "85_over":"85_over"
+    }
+
+    return ages[age_range]
+
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -208,9 +226,9 @@ def mental():
 def model(age, sex, marital_status, education_level, race, hispanic_origin):
     model_predictions = run_model(education_level, sex, age, marital_status, race, hispanic_origin, 'Neural_Network_Trained_Models/global.model')
     return jsonify(model_predictions)
-@app.route("/model_plus_10/<age>/<gender>/<marital_status>/<education_level>/<race>")
-def model_plus_10(age, gender, marital_status, education_level, race):
-    model_predictions = run_model(education_level, sex, get_age_plus_ten(age), marital_status, race, hispanic_origin, 'global.model')
+@app.route("/model_plus_10/<age>/<sex>/<marital_status>/<education_level>/<race>/<hispanic_origin>")
+def model_plus_10(age, sex, marital_status, education_level, race, hispanic_origin):
+    model_predictions = run_model(education_level, sex, get_age_plus_ten(age), marital_status, race, hispanic_origin, 'Neural_Network_Trained_Models/global.model')
     return jsonify(model_predictions)
 
 # education = 'Bachelors_degree'
