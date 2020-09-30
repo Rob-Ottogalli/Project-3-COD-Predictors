@@ -152,28 +152,30 @@ def hispanic_code(hispanic):
 
     return hispanic_array
 
-def sort_dict(dict):
-    sorted_dict = sorted(dict.items(), key=lambda x: x[1], reverse=True)
+def sort_dict(dictionary):
+    sorted_dict = sorted(dictionary.items(), key=lambda x: x[1], reverse=True)
     return sorted_dict
 
-def format_prob(prob):
-    probability = round(prob*100, 2)
-    return str(probability)
+def format_prob(probabilities):
+    formatted_probs = []
+    for prob in probabilities:
+        formatted_prob = str(round(prob[1]*100, 2))
+        formatted_probs.append((prob[0], formatted_prob))
+    return formatted_probs
 
 def run_model(education_level, sex, age, marital_status, race, hispanic_origin, model_path):
     bst = xgb.XGBClassifier()
     bst.load_model(model_path)
-
     input_list = education_level_code(education_level) + month_code() + sex_code(sex) + age_code(age) \
                 + marital_status_code(marital_status) + day_code() + race_code(race) + hispanic_code(hispanic_origin)
     df = pd.DataFrame([input_list])
     predictions = bst.predict(df.values)[0]
-    print(predictions[2])
-    prediction = {'Diseases of the circulatory system': format_prob(predictions[0]),
-                  'Diseases of the nervous system': format_prob(predictions[1]),
-                  'Neoplasms': format_prob(predictions[2])}
+
+    prediction = {'Diseases of the circulatory system': predictions[0],
+                  'Diseases of the nervous system': predictions[1],
+                  'Neoplasms': predictions[2]}
     prediction = sort_dict(prediction)
-    print(prediction)
+    prediction = format_prob(prediction)
     return prediction
 
 def get_age_plus_ten(age_range):
@@ -197,6 +199,18 @@ def get_age_plus_ten(age_range):
 @app.route("/")
 def home():
     return render_template("index.html")
+
+@app.route("/biological_sex")
+def biological_sex():
+    return render_template("biological_sex.html")
+
+@app.route("/education")
+def education():
+    return render_template("education.html")
+
+@app.route("/seasons")
+def seasons():
+    return render_template("seasons.html")
 
 @app.route("/predict")
 def ml_app():
@@ -230,15 +244,6 @@ def model(age, sex, marital_status, education_level, race, hispanic_origin):
 def model_plus_10(age, sex, marital_status, education_level, race, hispanic_origin):
     model_predictions = run_model(education_level, sex, get_age_plus_ten(age), marital_status, race, hispanic_origin, 'Neural_Network_Trained_Models/global.model')
     return jsonify(model_predictions)
-
-# education = 'Bachelors_degree'
-# sex = 'Male'
-# age = '65_74'
-# marital = 'Divorced'
-# race = 'Black'
-# hispanic = 'Cuban'
-# model = 'global.model'
-# predict = run_model(education, sex, age, marital, race, hispanic, model)
 
 if __name__ == "__main__":
     app.run(debug=True)
