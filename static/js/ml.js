@@ -6,7 +6,7 @@ function publish_result(data, model) {
     else {
         prediction_time = 'ten years from now';
     }
-    output_html = `If you were to die ${prediction_time}, the probability you would die of these diseases is:<br/>`;
+    output_html = `If you were to die ${prediction_time}, what are the chances you would die from the following diseases?:<br/>`;
     data.forEach(disease => {
         output_html = output_html + `<u>${disease[0]}</u>: ${disease[1]}% <br />`;
     });
