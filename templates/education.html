@@ -119,7 +119,7 @@
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Deep Dive - Education Level</h1>
-          <p class="mb-4">Chart.js is a third party plugin that is used to generate the charts in this theme. The charts below have been customized - for further customization options, please visit the <a target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js documentation</a>.</p>
+          <p class="mb-4">Here we will explore how educational level affect death rates across multiple other demographics.</p>
 
           <!-- Content Row -->
           <div class="row">
@@ -153,7 +153,41 @@
                   </script>
                   </div>
                   <hr>
-                  ANALYSIS HERE.
+                  We can already see that the elderly make up the highest percentages in our analysis, but is most notable in “8th grade or less” with 44.91%.
+                </div>
+              </div>
+
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Examining the Breakdown of Deaths by Education Level, Age Group, and Gender</h6>
+                </div>
+                <div class="card-body">
+                  <div class="chart-area-xl">
+                    <div id="vizContainer4"></div>
+                    <script>
+                      var viz
+          
+                      // function to put tableau on screen, using example link.
+                      function initViz() {
+                          var containerDiv = document.getElementById("vizContainer4"),
+                          url = "https://public.tableau.com/views/Education-Age/Dashboard2?:language=en&:display_count=y&:origin=viz_share_link"; // <- insert link here
+                          var options = {
+                              width: '100%',
+                              height: '50rem',
+                              hideTabs: true,
+                              hideToolbar: true,
+                          };
+                          viz = new tableau.Viz(containerDiv, url, options);
+                      }
+                      initViz();
+                  </script>
+                  </div>
+                  <hr>
+                  We split the data between genders. We can start to piece together an inverse relationship with education, 
+                  age, and gender. For younger age groups, male deaths take up the majority, whereas for older age groups,
+                  usually 75 and older, female deaths become the majority. However, the higher the level of education, the
+                  less this trend becomes apparent as male deaths become prevalent in Doctorate and Masters level of
+                  education.
                 </div>
               </div>
 
@@ -184,7 +218,14 @@
                   </script>
                   </div>
                   <hr>
-                  ANALYSIS HERE.
+                  In this observation of between Gender and Education, there are no discernible trends. However, the 
+                  significant difference between men and women in the “Doctorate” level of education stands out. Next 
+                  we’ll try marital status and education. We can see that almost 20% of the “Never married, single” 
+                  category is “8th grade or less” as compared to the other marital statuses. Let’s try to put them 
+                  together. Already we can see some pretty notable differences, especially with Married Males and 
+                  Widowed Females. The only education that stands out, however, is the Doctorate category, which remains 
+                  predominately male. As it stands, education doesn’t appear to have as significant an impact on causes of 
+                  death as other factors like age do.
                 </div>
               </div>
 
@@ -214,7 +255,12 @@
                   </script>
                   </div>
                   <hr>
-                  ANALYSIS HERE.
+                  First we analyze the percentage of deaths per race, per education level. We can already see some big
+                  differences, especially with the bachelor’s degree level of education. Focusing on only Bachelor’s 
+                  Degrees, we look into which Cause of Death Categories are most prevalent for each race. We can see that
+                  Asian and Pacific Islander is the only race to have neoplasms(Cancer/Tumors) as it’s leading cause of 
+                  death. Diving in even further, we’re shown that trachea, bronchus, and lung neoplasms are the leading 
+                  cause of death, making up ~20% of neoplastic deaths for Asian or Pacific Islanders.
                 </div>
               </div>
 
@@ -247,25 +293,6 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Bootstrap core JavaScript-->
   <script src="../static/vendor/jquery/jquery.min.js"></script>
