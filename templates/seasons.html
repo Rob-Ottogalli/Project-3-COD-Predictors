@@ -118,7 +118,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Deep Dive - Biological Sex</h1>
+          <h1 class="h3 mb-2 text-gray-800">Deep Dive - Seasonal Impact</h1>
           <p class="mb-4">Chart.js is a third party plugin that is used to generate the charts in this theme. The charts below have been customized - for further customization options, please visit the <a target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js documentation</a>.</p>
 
           <!-- Content Row -->
@@ -129,7 +129,7 @@
               <!-- Male and Female Difference Chart-->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Examining the Difference Between Male and Female Deaths</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Overall Seasonal Impact</h6>
                 </div>
                 <div class="card-body">
                   <div class="chart-area">
@@ -140,7 +140,7 @@
                       // function to put tableau on screen, using example link.
                       function initViz() {
                           var containerDiv = document.getElementById("vizContainer"),
-                          url = "https://public.tableau.com/views/Sex-1/Dashboard1?:language=en&:display_count=y&publish=yes&:origin=viz_share_link"; // <- insert link here
+                          url = "https://public.tableau.com/views/Final_Project_Demo-OverallSeasonalImpact/SeasonalImpactOverall?:language=en&:display_count=y&:origin=viz_share_link"; // <- insert link here
                           var options = {
                               width: '100%',
                               height: '25rem',
@@ -160,7 +160,7 @@
               <!-- Top 5 Death Category Chart -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Examining the Top 5 Categories of Deaths of Males and Females</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Examining the Top 5 Causes of Deaths in Winter</h6>
                 </div>
                 <div class="card-body">
                   <div class="chart-area">
@@ -171,7 +171,7 @@
                       // function to put tableau on screen, using example link.
                       function initViz() {
                           var containerDiv = document.getElementById("vizContainer2"),
-                          url = "https://public.tableau.com/views/Sex-2/Dashboard1?:language=en&:display_count=y&:origin=viz_share_link"; // <- insert link here
+                          url = "https://public.tableau.com/views/Final_Project_Demo/Top5Deaths-Winter?:language=en&:display_count=y&:origin=viz_share_link"; // <- insert link here
                           var options = {
                               width: '100%',
                               height: '25rem',
@@ -190,7 +190,7 @@
 
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Examining the Top 5 Circulatory System Diseases of Males and Females</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Examining the Top 5 Causes of Deaths in Summer</h6>
                 </div>
                 <div class="card-body">
                   <div class="chart-area">
@@ -201,7 +201,7 @@
                       // function to put tableau on screen, using example link.
                       function initViz() {
                           var containerDiv = document.getElementById("vizContainer3"),
-                          url = "https://public.tableau.com/views/Sex-3/Dashboard1?:language=en&:retry=yes&:display_count=y&:origin=viz_share_link"; // <- insert link here
+                          url = "https://public.tableau.com/views/Top5Deaths-Summer/Top5Deaths-Summer?:language=en&:display_count=y&:origin=viz_share_link"; // <- insert link here
                           var options = {
                               width: '100%',
                               height: '25rem',
@@ -220,7 +220,7 @@
 
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Examining the Affect of Age, Race, and Marital Status on Deaths from Coronary Artery Disease</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Examining the Top 5 Causes of Death of People Under the Age of 15</h6>
                 </div>
                 <div class="card-body">
                   <div class="chart-area-lg">
@@ -231,7 +231,67 @@
                       // function to put tableau on screen, using example link.
                       function initViz() {
                           var containerDiv = document.getElementById("vizContainer4"),
-                          url = "https://public.tableau.com/views/Sex-4/Sex-4?:language=en&:retry=yes&:display_count=y&:origin=viz_share_link"; // <- insert link here
+                          url = "https://public.tableau.com/views/Top5Deaths-AgeGroupunder15/Top5Deaths-AgeGroupunder15?:language=en&:display_count=y&:origin=viz_share_link"; // <- insert link here
+                          var options = {
+                              width: '100%',
+                              height: '30rem',
+                              hideTabs: true,
+                              hideToolbar: true,
+                          };
+                          viz = new tableau.Viz(containerDiv, url, options);
+                      }
+                      initViz();
+                  </script>
+                  </div>
+                  <hr>
+                  ANALYSIS HERE.
+                </div>
+              </div>
+
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Examining the Top 5 Causes of Death of People Aged 15 - 35</h6>
+                </div>
+                <div class="card-body">
+                  <div class="chart-area-lg">
+                    <div id="vizContainer5"></div>
+                    <script>
+                      var viz
+          
+                      // function to put tableau on screen, using example link.
+                      function initViz() {
+                          var containerDiv = document.getElementById("vizContainer5"),
+                          url = "https://public.tableau.com/views/Top5Deaths-AgeGroup15-35/Top5Deaths-AgeGroup15-35?:language=en&:display_count=y&:origin=viz_share_link"; // <- insert link here
+                          var options = {
+                              width: '100%',
+                              height: '30rem',
+                              hideTabs: true,
+                              hideToolbar: true,
+                          };
+                          viz = new tableau.Viz(containerDiv, url, options);
+                      }
+                      initViz();
+                  </script>
+                  </div>
+                  <hr>
+                  ANALYSIS HERE.
+                </div>
+              </div>
+
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Examining the Top 5 Causes of Death of People Aged 35 - 54</h6>
+                </div>
+                <div class="card-body">
+                  <div class="chart-area-lg">
+                    <div id="vizContainer6"></div>
+                    <script>
+                      var viz
+          
+                      // function to put tableau on screen, using example link.
+                      function initViz() {
+                          var containerDiv = document.getElementById("vizContainer6"),
+                          url = "https://public.tableau.com/views/Top5Deaths-AgeGroup35-54/Top5Deaths-AgeGroup35-54?:language=en&:display_count=y&:origin=viz_share_link"; // <- insert link here
                           var options = {
                               width: '100%',
                               height: '30rem',
